@@ -122,10 +122,11 @@ export default {
 </script>
 
 <style scoped>
+/* !important so WeWeb Sizing (e.g. Width 100%) and Display (block) don't override grid layout */
 .inv-previewer {
-  display: grid;
+  display: grid !important;
   gap: 1rem;
-  width: max-content;
+  width: max-content !important;
   max-width: 100%;
 }
 
