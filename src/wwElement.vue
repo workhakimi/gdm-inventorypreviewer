@@ -184,12 +184,14 @@ export default {
 }
 
 .inv-previewer__model {
-  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
   margin-bottom: 2px;
 }
 
 .inv-previewer__color {
-  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
   margin-bottom: 4px;
 }
 
