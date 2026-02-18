@@ -76,9 +76,9 @@ export default {
   },
   computed: {
     gridStyle() {
-      const cols = Math.max(1, Math.min(12, Number(this.content.maxColumns) || 4));
+      const cols = Math.max(1, Math.min(12, Number(this.content.maxColumns) || 7));
       return {
-        gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))`,
+        gridTemplateColumns: `repeat(${cols}, 180px)`,
       };
     },
     cellStyle() {
