@@ -205,7 +205,7 @@ export default {
   height: auto;
   align-self: flex-start;
   flex-shrink: 0;
-  font-size: 13px;
+  font-size: var(--inv-font-size, 14px);
   font-family: inherit;
   font-weight: 500;
   color: #fff;
