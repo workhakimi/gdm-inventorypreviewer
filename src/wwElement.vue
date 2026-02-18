@@ -78,7 +78,7 @@ export default {
     gridStyle() {
       const cols = Math.max(1, Math.min(12, Number(this.content.maxColumns) || 7));
       return {
-        gridTemplateColumns: `repeat(${cols}, 180px)`,
+        gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))`,
       };
     },
     cellStyle() {
@@ -122,11 +122,11 @@ export default {
 </script>
 
 <style scoped>
-/* !important so WeWeb Sizing (e.g. Width 100%) and Display (block) don't override grid layout */
+/* !important so WeWeb Sizing/Display don't override grid layout. width 100% so columns autofit within container. */
 .inv-previewer {
   display: grid !important;
   gap: 1rem;
-  width: max-content !important;
+  width: 100% !important;
   max-width: 100%;
 }
 
@@ -138,7 +138,7 @@ export default {
   display: flex;
   flex-direction: column;
   color: var(--inv-text-color);
-  max-width: 180px;
+  min-width: 0;
 }
 
 .inv-previewer__img-wrap {
@@ -192,6 +192,8 @@ export default {
   padding: 8px;
   width: auto;
   height: auto;
+  align-self: flex-start;
+  flex-shrink: 0;
   font-size: 13px;
   font-family: inherit;
   font-weight: 500;
