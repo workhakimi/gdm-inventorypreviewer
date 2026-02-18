@@ -23,8 +23,10 @@
         </div>
       </div>
       <button
+        v-if="showAddButton"
         type="button"
         class="inv-previewer__btn"
+        :style="buttonStyle"
         @click="onAddItem(item)"
       >
         {{ addItemLabel }}
@@ -83,6 +85,7 @@ export default {
     },
     cellStyle() {
       const c = this.content;
+      const fontSize = Math.max(10, Math.min(24, Number(c.fontSize) || 14));
       return {
         '--inv-cell-bg': c.cellColor || '#ffffff',
         '--inv-text-color': c.textColor || '#1e293b',
@@ -91,11 +94,20 @@ export default {
           ? `${c.borderWidth || '1px'} solid ${c.borderColor || '#e2e8f0'}`
           : 'none',
         '--inv-qty-low-color': c.quantityZeroOrBelowColor || '#dc2626',
+        '--inv-font-size': `${fontSize}px`,
       };
     },
     bodyStyle() {
       const align = this.content.textAlignment || 'left';
       return { textAlign: align };
+    },
+    buttonStyle() {
+      const align = this.content.textAlignment || 'left';
+      const alignSelfMap = { left: 'flex-start', center: 'center', right: 'flex-end' };
+      return { alignSelf: alignSelfMap[align] || 'flex-start' };
+    },
+    showAddButton() {
+      return this.content.showAddButton !== false;
     },
   },
   methods: {
@@ -168,22 +180,21 @@ export default {
 .inv-previewer__body {
   padding: 0.75rem;
   flex: 1;
+  font-size: var(--inv-font-size, 14px);
 }
 
 .inv-previewer__model {
   font-weight: 700;
-  font-size: 14px;
   margin-bottom: 2px;
 }
 
 .inv-previewer__color {
   font-weight: 700;
-  font-size: 13px;
   margin-bottom: 4px;
 }
 
 .inv-previewer__qty {
-  font-size: 12px;
+  font-size: 0.9em;
   margin-top: 4px;
 }
 

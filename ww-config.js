@@ -8,9 +8,10 @@ export default {
   editor: {
     label: { en: 'Inventory Previewer' },
     icon: 'layout-grid',
-    customSettingsPropertiesOrder: ['data', 'addItemButtonText'],
+    customSettingsPropertiesOrder: ['data', 'addItemButtonText', 'showAddButton'],
     customStylePropertiesOrder: [
       'maxColumns',
+      'fontSize',
       'cellColor',
       'textColor',
       'borderRadius',
@@ -51,6 +52,19 @@ export default {
       defaultValue: 'Add Item',
       bindable: true,
     },
+    showAddButton: {
+      label: { en: 'Display Add to cart button' },
+      type: 'OnOff',
+      section: 'settings',
+      defaultValue: true,
+      bindable: true,
+      /* wwEditor:start */
+      bindingValidation: {
+        type: 'boolean',
+        tooltip: 'True to show the Add Item button, false to hide it.',
+      },
+      /* wwEditor:end */
+    },
     // —— Style ——
     maxColumns: {
       label: { en: 'Max columns' },
@@ -59,6 +73,20 @@ export default {
       defaultValue: 7,
       options: { min: 1, max: 12, step: 1 },
       bindable: true,
+    },
+    fontSize: {
+      label: { en: 'Font size' },
+      type: 'Number',
+      section: 'style',
+      defaultValue: 14,
+      options: { min: 10, max: 24, step: 1 },
+      bindable: true,
+      /* wwEditor:start */
+      bindingValidation: {
+        type: 'number',
+        tooltip: 'Font size in pixels for cell text.',
+      },
+      /* wwEditor:end */
     },
     cellColor: {
       label: { en: 'Cell background' },
