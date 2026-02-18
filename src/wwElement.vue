@@ -19,7 +19,7 @@
         <div class="inv-previewer__model">{{ item.Model || '—' }}</div>
         <div class="inv-previewer__color">{{ item.Color || '—' }}</div>
         <div class="inv-previewer__qty" :style="qtyStyle(item)">
-          Available {{ formatQty(item.SNT) }}
+          {{ formatQty(item.SNT) }} Available
         </div>
       </div>
       <button
@@ -125,7 +125,8 @@ export default {
 .inv-previewer {
   display: grid;
   gap: 1rem;
-  width: 100%;
+  width: max-content;
+  max-width: 100%;
 }
 
 .inv-previewer__cell {
@@ -136,6 +137,7 @@ export default {
   display: flex;
   flex-direction: column;
   color: var(--inv-text-color);
+  max-width: 180px;
 }
 
 .inv-previewer__img-wrap {
@@ -186,7 +188,9 @@ export default {
 
 .inv-previewer__btn {
   margin: 0 0.75rem 0.75rem;
-  padding: 8px 12px;
+  padding: 8px;
+  width: auto;
+  height: auto;
   font-size: 13px;
   font-family: inherit;
   font-weight: 500;

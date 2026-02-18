@@ -56,7 +56,7 @@ export default {
       label: { en: 'Max columns' },
       type: 'Number',
       section: 'style',
-      defaultValue: 4,
+      defaultValue: 7,
       options: { min: 1, max: 12, step: 1 },
       bindable: true,
     },
