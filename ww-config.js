@@ -26,7 +26,7 @@ export default {
     {
       name: 'addItem',
       label: { en: 'On Add Item' },
-      event: { sku: '' },
+      event: { sku: '', quantity: 0, status: null },
       getTestEvent: 'getAddItemTestEvent',
       default: true,
     },

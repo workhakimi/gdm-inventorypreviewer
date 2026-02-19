@@ -67,7 +67,7 @@ export default {
       if (props.wwEditorState?.editMode === wwLib?.wwEditorHelper?.EDIT_MODES?.EDITION) return;
       /* wwEditor:end */
       const sku = item?.SKU ?? item?.sku ?? '';
-      emit('trigger-event', { name: 'addItem', event: { sku } });
+      emit('trigger-event', { name: 'addItem', event: { sku, quantity: 0, status: null } });
     }
 
     return {
@@ -119,7 +119,7 @@ export default {
     getAddItemTestEvent() {
       const data = this.items;
       const first = data && data[0];
-      return { sku: (first && (first.SKU || first.sku)) || '' };
+      return { sku: (first && (first.SKU || first.sku)) || '', quantity: 0, status: null };
     },
     /* wwEditor:end */
     qtyStyle(item) {
