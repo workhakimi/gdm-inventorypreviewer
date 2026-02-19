@@ -21,6 +21,7 @@
         <div class="inv-previewer__qty" :style="qtyStyle(item)">
           {{ formatQty(item.SNT) }} Available
         </div>
+        <div v-if="showDisplaySku" class="inv-previewer__sku">{{ item.SKU || item.sku || '—' }}</div>
       </div>
       <button
         v-if="showAddButton"
@@ -108,6 +109,9 @@ export default {
     },
     showAddButton() {
       return this.content.showAddButton !== false;
+    },
+    showDisplaySku() {
+      return this.content.displaySku !== false;
     },
   },
   methods: {
@@ -198,6 +202,12 @@ export default {
 .inv-previewer__qty {
   font-size: 0.9em;
   margin-top: 4px;
+}
+
+.inv-previewer__sku {
+  font-size: 0.85em;
+  margin-top: 2px;
+  color: #64748b;
 }
 
 .inv-previewer__btn {

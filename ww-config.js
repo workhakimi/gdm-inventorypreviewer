@@ -8,7 +8,7 @@ export default {
   editor: {
     label: { en: 'Inventory Previewer' },
     icon: 'layout-grid',
-    customSettingsPropertiesOrder: ['data', 'addItemButtonText', 'showAddButton'],
+    customSettingsPropertiesOrder: ['data', 'addItemButtonText', 'showAddButton', 'displaySku'],
     customStylePropertiesOrder: [
       'maxColumns',
       'fontSize',
@@ -62,6 +62,19 @@ export default {
       bindingValidation: {
         type: 'boolean',
         tooltip: 'True to show the Add Item button, false to hide it.',
+      },
+      /* wwEditor:end */
+    },
+    displaySku: {
+      label: { en: 'Display SKU' },
+      type: 'OnOff',
+      section: 'settings',
+      defaultValue: true,
+      bindable: true,
+      /* wwEditor:start */
+      bindingValidation: {
+        type: 'boolean',
+        tooltip: 'True to show SKU in each cell under Available, false to hide it.',
       },
       /* wwEditor:end */
     },
