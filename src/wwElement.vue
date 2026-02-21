@@ -2,26 +2,26 @@
   <div class="inv-previewer" :style="gridStyle">
     <div
       v-for="(item, index) in items"
-      :key="item.SKU || index"
+      :key="(item.SKU ?? item.sku) || index"
       class="inv-previewer__cell"
       :style="cellStyle"
     >
       <div class="inv-previewer__img-wrap">
         <img
-          v-if="item.ImageLink"
-          :src="item.ImageLink"
-          :alt="item.Model"
+          v-if="item.imagelink || item.image_link || item.ImageLink"
+          :src="item.imagelink || item.image_link || item.ImageLink"
+          :alt="item.model || item.Model"
           class="inv-previewer__img"
         />
         <div v-else class="inv-previewer__img-placeholder">No image</div>
       </div>
       <div class="inv-previewer__body" :style="bodyStyle">
-        <div class="inv-previewer__model">{{ item.Model || '—' }}</div>
-        <div class="inv-previewer__color">{{ item.Color || '—' }}</div>
+        <div class="inv-previewer__model">{{ item.model || item.Model || '—' }}</div>
+        <div class="inv-previewer__color">{{ item.color || item.Color || '—' }}</div>
         <div class="inv-previewer__qty" :style="qtyStyle(item)">
-          {{ formatQty(item.SNT) }} Available
+          {{ formatQty(item.SNT ?? item.snt) }} Available
         </div>
-        <div v-if="showDisplaySku" class="inv-previewer__sku">{{ item.SKU || item.sku || '—' }}</div>
+        <div v-if="showDisplaySku" class="inv-previewer__sku">{{ item.SKU ?? item.sku ?? '—' }}</div>
       </div>
       <button
         v-if="showAddButton"

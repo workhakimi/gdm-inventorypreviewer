@@ -41,7 +41,7 @@ export default {
       /* wwEditor:start */
       bindingValidation: {
         type: 'array',
-        tooltip: 'Array of items with SKU, Model, Color, SNT, ImageLink (e.g. selectedRows from a datagrid).',
+        tooltip: 'Array of items with sku, model, color, snt, imagelink (or PascalCase: SKU, Model, Color, SNT, ImageLink).',
       },
       /* wwEditor:end */
     },
