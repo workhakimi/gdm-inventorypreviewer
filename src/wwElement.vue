@@ -68,7 +68,7 @@ export default {
       if (props.wwEditorState?.editMode === wwLib?.wwEditorHelper?.EDIT_MODES?.EDITION) return;
       /* wwEditor:end */
       const sku = item?.SKU ?? item?.sku ?? '';
-      emit('trigger-event', { name: 'addItem', event: { Booking_Items: { SKU: sku, Quantity: 0, Status: null } } });
+      emit('trigger-event', { name: 'addItem', event: { booking_items: { sku, quantity: 0, status: null } } });
     }
 
     return {
@@ -123,7 +123,7 @@ export default {
     getAddItemTestEvent() {
       const data = this.items;
       const first = data && data[0];
-      return { Booking_Items: { SKU: (first && (first.SKU || first.sku)) || '', Quantity: 0, Status: null } };
+      return { booking_items: { sku: (first && (first.SKU || first.sku)) || '', quantity: 0, status: null } };
     },
     /* wwEditor:end */
     qtyStyle(item) {

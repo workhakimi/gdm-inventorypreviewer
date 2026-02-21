@@ -26,7 +26,7 @@ export default {
     {
       name: 'addItem',
       label: { en: 'On Add Item' },
-      event: { Booking_Items: { SKU: '', Quantity: 0, Status: null } },
+      event: { booking_items: { sku: '', quantity: 0, status: null } },
       getTestEvent: 'getAddItemTestEvent',
       default: true,
     },
