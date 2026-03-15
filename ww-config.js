@@ -83,6 +83,7 @@ export default {
       type: 'OnOff',
       section: 'settings',
       defaultValue: false,
+      bindable: true,
       /* wwEditor:start */
       bindingValidation: {
         type: 'boolean',
