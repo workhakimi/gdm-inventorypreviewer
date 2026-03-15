@@ -34,7 +34,9 @@
       </button>
     </div>
     <div v-if="!items.length" class="inv-previewer__empty">
-      Bind data to show selected SKUs.
+      <template v-if="content.isLoading">Loading...</template>
+      <template v-else-if="!content.data">Bind data to show selected SKUs.</template>
+      <template v-else>No items to display.</template>
     </div>
   </div>
 </template>
