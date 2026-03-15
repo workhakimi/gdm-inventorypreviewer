@@ -4,6 +4,7 @@
       v-for="(item, index) in items"
       :key="(item.SKU ?? item.sku) || index"
       class="inv-previewer__cell"
+      :class="{ 'inv-previewer__cell--minimal': content.minimalMode }"
       :style="cellStyle"
     >
       <div class="inv-previewer__img-wrap">
@@ -232,6 +233,17 @@ export default {
 
 .inv-previewer__btn:hover {
   background: #1d4ed8;
+}
+
+/* Minimal mode overrides */
+.inv-previewer__cell--minimal {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+}
+
+.inv-previewer__cell--minimal .inv-previewer__img-wrap {
+  background: transparent;
 }
 
 .inv-previewer__empty {

@@ -8,7 +8,7 @@ export default {
   editor: {
     label: { en: 'Inventory Previewer' },
     icon: 'layout-grid',
-    customSettingsPropertiesOrder: ['data', 'addItemButtonText', 'showAddButton', 'displaySku'],
+    customSettingsPropertiesOrder: ['data', 'addItemButtonText', 'showAddButton', 'displaySku', 'minimalMode'],
     customStylePropertiesOrder: [
       'maxColumns',
       'fontSize',
@@ -75,6 +75,18 @@ export default {
       bindingValidation: {
         type: 'boolean',
         tooltip: 'True to show SKU in each cell under Available, false to hide it.',
+      },
+      /* wwEditor:end */
+    },
+    minimalMode: {
+      label: { en: 'Minimal mode' },
+      type: 'OnOff',
+      section: 'settings',
+      defaultValue: false,
+      /* wwEditor:start */
+      bindingValidation: {
+        type: 'boolean',
+        tooltip: 'When enabled, removes card borders, backgrounds, and radius for a clean minimal look.',
       },
       /* wwEditor:end */
     },
